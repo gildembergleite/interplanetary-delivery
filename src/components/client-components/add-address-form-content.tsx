@@ -11,7 +11,12 @@ const addressFormSchema = z.object({
   planet: z.enum(['MARS', 'EARTH'], {
     required_error: 'Please enter a planet name',
   }),
-  location: z.string().optional(),
+  location: z
+    .string()
+    .max(4, {
+      message: 'Please enter a valid code for Mars location',
+    })
+    .optional(),
   address: z.string().optional(),
   fullName: z.string({
     required_error: 'Please enter a local full name',

@@ -33,6 +33,12 @@
       "planet": "MARS",
       "location": "1312 Av. Example, New York, Brooklyn",
       "fullName": "Add new example"
+    },
+    {
+      "id": "8ede",
+      "planet": "MARS",
+      "location": "3eac",
+      "fullName": "example"
     }
   ]
 }
