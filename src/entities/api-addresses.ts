@@ -6,14 +6,6 @@ interface ApiAddressesConstructorProps {
   defaultHeaders?: Record<string, string>
 }
 
-export type UpdateAddressMethodProps = {
-  id: string
-  planet: 'MARS' | 'EARTH'
-  fullName: string
-  location?: string | undefined
-  address?: string | undefined
-}
-
 export class ApiAddresses extends BaseApi {
   // eslint-disable-next-line no-useless-constructor
   constructor({ baseURL, defaultHeaders }: ApiAddressesConstructorProps) {
@@ -28,7 +20,11 @@ export class ApiAddresses extends BaseApi {
     return this.get({ endpoint: `/addresses/${id}` })
   }
 
-  public async updateAddress(props: UpdateAddressMethodProps): Promise<void> {
+  public async addAddress(props: AddressType): Promise<void> {
+    return this.patch({ endpoint: `/addresses/${props.id}`, body: props })
+  }
+
+  public async updateAddress(props: AddressType): Promise<void> {
     return this.patch({ endpoint: `/addresses/${props.id}`, body: props })
   }
 }

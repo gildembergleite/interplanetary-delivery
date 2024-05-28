@@ -1,7 +1,7 @@
 export type AddressType = {
   id: string
-  location: string | undefined
-  address: string | undefined
+  location?: string
+  address?: string
   planet: 'MARS' | 'EARTH'
   fullName: string
 }

@@ -1,4 +1,4 @@
-import { AddressesContainer } from '@/components/addresses-container'
+import { AddressesContainer } from '@/components/async-components/addresses-container'
 import { Header } from '@/components/header'
 import { LoadingAddressesContainer } from '@/components/loadings/loading-addresses-container'
 import { Button } from '@/components/ui/button'

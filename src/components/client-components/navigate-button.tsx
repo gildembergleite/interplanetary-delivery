@@ -14,7 +14,7 @@ export function NavigateButton({
 }: NavigationButtonProps) {
   const { push } = useRouter()
   return (
-    <Button onClick={() => push(page)} {...rest}>
+    <Button type="button" onClick={() => push(page)} {...rest}>
       {title}
     </Button>
   )

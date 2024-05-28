@@ -1,14 +1,9 @@
 'use client'
 
-import { addressesApiService } from '@/app/services/addresses-api-service'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { LoaderCircleIcon } from 'lucide-react'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
-import { z } from 'zod'
-import { NavigateButton } from './client-components/navigate-button'
-import { Button } from './ui/button'
+import { UseFormReturn } from 'react-hook-form'
+import { NavigateButton } from '../client-components/navigate-button'
+import { Button } from '../ui/button'
 import {
   Form,
   FormControl,
@@ -17,73 +12,32 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from './ui/form'
-import { Input } from './ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select'
+} from '../ui/select'
 
-const editAddressFormSchema = z.object({
-  id: z.string(),
-  planet: z.enum(['MARS', 'EARTH'], {
-    required_error: 'Please enter a planet name',
-  }),
-  location: z.string().optional(),
-  address: z.string().optional(),
-  fullName: z.string({
-    required_error: 'Please enter a local full name',
-  }),
-})
+interface AddressFormProps<T> {
+  form: UseFormReturn<T | any>
+  submitFn: (formData: T) => void
+  disabledButton?: boolean
+}
 
-export type EditAddressFormData = z.infer<typeof editAddressFormSchema>
-
-export function EditAddressForm(addressData: EditAddressFormData) {
-  const [data, setData] = useState(addressData)
-
-  const form = useForm<EditAddressFormData>({
-    resolver: zodResolver(editAddressFormSchema),
-    defaultValues: {
-      id: data.id,
-      planet: data.planet,
-      fullName: data.fullName,
-      location: data.location !== null ? data.location : undefined,
-      address: data.address !== null ? data.location : undefined,
-    },
-  })
-
-  const { planet, fullName, location, address } = form.getValues()
-
-  async function updateAddress(formData: EditAddressFormData) {
-    if (!location && !address) {
-      form.setError('location', { message: 'Required field' })
-      form.setError('address', { message: 'Required field' })
-      return
-    }
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    await addressesApiService
-      .updateAddress(formData)
-      .then((res) => {
-        setData(form.getValues())
-        toast.success('Address updated successfully!')
-      })
-      .catch(() => {
-        toast.error('Something went wrong!')
-      })
-  }
-
-  const areFormAndDataTheSame =
-    planet === data.planet &&
-    fullName === data.fullName &&
-    ((data.location !== null && data.location === location) ||
-      (data.address !== null && data.address === address))
+export function AddressForm<T>({
+  form,
+  submitFn,
+  disabledButton,
+}: AddressFormProps<T>) {
+  const { planet } = form.getValues()
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(updateAddress)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(submitFn)} className="space-y-4">
         <FormField
           control={form.control}
           name="planet"
@@ -153,7 +107,7 @@ export function EditAddressForm(addressData: EditAddressFormData) {
             variant={'secondary'}
           />
           <Button
-            disabled={form.formState.isSubmitting || areFormAndDataTheSame}
+            disabled={form.formState.isSubmitting || disabledButton}
             className="gap-2"
           >
             {form.formState.isSubmitting && (

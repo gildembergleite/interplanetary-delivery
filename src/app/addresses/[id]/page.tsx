@@ -1,5 +1,5 @@
 import { addressesApiService } from '@/app/services/addresses-api-service'
-import { EditAddressForm } from '@/components/edit-address-form'
+import { EditAddressForm } from '@/components/client-components/edit-address-form-content'
 import { Header } from '@/components/header'
 
 interface EditAddressProps {

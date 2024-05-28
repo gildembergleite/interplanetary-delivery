@@ -1,6 +1,6 @@
 import { AddressType } from '@/@types/address'
-import { NavigateButton } from './client-components/navigate-button'
-import { Badge } from './ui/badge'
+import { NavigateButton } from '../client-components/navigate-button'
+import { Badge } from '../ui/badge'
 
 export function AddressCard(data: AddressType) {
   return (
@@ -30,7 +30,7 @@ export function AddressCard(data: AddressType) {
       <div className="flex flex-col justify-end md:flex-row gap-4">
         <NavigateButton
           title="Edit address"
-          page={`/address/${data.id}`}
+          page={`/addresses/${data.id}`}
           size={'lg'}
           variant={'outline'}
           className="px-8"

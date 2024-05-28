@@ -1,5 +1,5 @@
 import { addressesApiService } from '@/app/services/addresses-api-service'
-import { AddressCard } from './address-card'
+import { AddressCard } from '../server-components/address-card'
 
 export async function AddressesContainer() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
