@@ -1,4 +1,4 @@
-import EditAddressContainer from '@/components/async-components/edit-address-container'
+import { EditAddressContainer } from '@/components/async-components/edit-address-container'
 import { Header } from '@/components/header'
 import { LoadingEditAddressContainer } from '@/components/loadings/loading-edit-address-container'
 import { Suspense } from 'react'

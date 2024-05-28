@@ -9,7 +9,7 @@ import { z } from 'zod'
 import { AddressForm } from './address-form'
 
 const addressFormSchema = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   planet: z.enum(['MARS', 'EARTH'], {
     required_error: 'Please enter a planet name',
   }),

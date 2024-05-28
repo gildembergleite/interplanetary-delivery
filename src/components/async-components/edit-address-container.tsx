@@ -1,7 +1,6 @@
 import { addressesApiService } from '@/app/services/addresses-api-service'
-import { EditAddressForm } from '@/components/client-components/edit-address-form-content'
-
-export default async function EditAddressContainer({ id }: { id: string }) {
+import { EditAddressForm } from '../client-components/edit-address-form-content'
+export async function EditAddressContainer({ id }: { id: string }) {
   await new Promise((resolve) => setTimeout(resolve, 2000))
   const address = await addressesApiService.getAddressById({ id })
 
