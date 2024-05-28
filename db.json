@@ -1,0 +1,32 @@
+{
+  "addresses": [
+    {
+      "id": "1",
+      "location": "4ACD",
+      "address": null,
+      "planet": "MARS",
+      "fullName": "Office Example Edit"
+    },
+    {
+      "id": "2",
+      "location": "1A23",
+      "address": null,
+      "planet": "MARS",
+      "fullName": "Warehouse Example"
+    },
+    {
+      "id": "3",
+      "location": null,
+      "address": "123 Main St, Anytown, USA",
+      "planet": "EARTH",
+      "fullName": "Factory Example"
+    },
+    {
+      "id": "4",
+      "location": null,
+      "address": "456 Elm St, Another Town, USA",
+      "planet": "EARTH",
+      "fullName": "Distribution Center Example"
+    }
+  ]
+}
