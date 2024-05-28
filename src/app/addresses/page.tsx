@@ -1,4 +1,4 @@
-import { AddressesContainer } from '@/components/async-components/addresses-container'
+import { AddressesContainer } from '@/components/client-components/addresses-container'
 import { NavigateButton } from '@/components/client-components/navigate-button'
 import { SearchForm } from '@/components/client-components/search-form'
 import { Header } from '@/components/header'
