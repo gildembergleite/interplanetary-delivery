@@ -12,8 +12,8 @@ export class ApiAddresses extends BaseApi {
     super(baseURL, defaultHeaders)
   }
 
-  public getAddresses(): Promise<AddressType[]> {
-    return this.get({ endpoint: '/addresses' })
+  public getAddresses(params: URLSearchParams): Promise<AddressType[]> {
+    return this.get({ endpoint: `/addresses?${params}` })
   }
 
   public getAddressById({ id }: { id: string }): Promise<AddressType> {
