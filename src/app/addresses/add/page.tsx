@@ -10,7 +10,7 @@ interface AddAddressProps {
 export default async function AddAddress({ params: { id } }: AddAddressProps) {
   return (
     <>
-      <Header title="Edit address" />
+      <Header title="Add address" />
       <main className="w-full px-6 py-8">
         <AddAddressForm />
       </main>

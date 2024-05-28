@@ -21,7 +21,7 @@ export class ApiAddresses extends BaseApi {
   }
 
   public async addAddress(props: AddressType): Promise<void> {
-    return this.patch({ endpoint: `/addresses/${props.id}`, body: props })
+    return this.post({ endpoint: `/addresses`, body: props })
   }
 
   public async updateAddress(props: AddressType): Promise<void> {

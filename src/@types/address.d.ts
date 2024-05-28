@@ -1,5 +1,5 @@
 export type AddressType = {
-  id: string
+  id?: string
   location?: string
   address?: string
   planet: 'MARS' | 'EARTH'

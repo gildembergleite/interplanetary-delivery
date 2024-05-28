@@ -27,6 +27,12 @@
       "address": "456 Elm St, Another Town, USA",
       "planet": "EARTH",
       "fullName": "Distribution Center Example"
+    },
+    {
+      "id": "b4eb",
+      "planet": "MARS",
+      "location": "1312 Av. Example, New York, Brooklyn",
+      "fullName": "Add new example"
     }
   ]
 }

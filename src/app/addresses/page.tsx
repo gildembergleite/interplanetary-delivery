@@ -1,7 +1,7 @@
 import { AddressesContainer } from '@/components/async-components/addresses-container'
+import { NavigateButton } from '@/components/client-components/navigate-button'
 import { Header } from '@/components/header'
 import { LoadingAddressesContainer } from '@/components/loadings/loading-addresses-container'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SearchIcon } from 'lucide-react'
 import { Suspense } from 'react'
@@ -20,9 +20,12 @@ export default async function AddressPage() {
                 className="border-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
-            <Button variant={'primary-outline'} className="px-8">
-              Add address
-            </Button>
+            <NavigateButton
+              title="Add address"
+              page="/addresses/add"
+              variant={'primary-outline'}
+              className="px-8"
+            />
           </div>
         </div>
         <div className="flex flex-col w-full gap-4">

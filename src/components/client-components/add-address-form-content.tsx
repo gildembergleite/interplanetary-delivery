@@ -3,6 +3,7 @@
 import { addressesApiService } from '@/app/services/addresses-api-service'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 import { AddressForm } from './address-form'
 
@@ -24,7 +25,7 @@ export function AddAddressForm() {
     resolver: zodResolver(addressFormSchema),
   })
 
-  const { planet, fullName, location, address } = form.getValues()
+  const { location, address } = form.getValues()
 
   async function addAddress(formData: AddressFormData) {
     if (!location && !address) {
@@ -34,14 +35,13 @@ export function AddAddressForm() {
     }
     await new Promise((resolve) => setTimeout(resolve, 2000))
     await addressesApiService
-    // .updateAddress(formData)
-    // .then((res) => {
-    //   setData(form.getValues())
-    //   toast.success('Address updated successfully!')
-    // })
-    // .catch(() => {
-    //   toast.error('Something went wrong!')
-    // })
+      .addAddress(formData)
+      .then((res) => {
+        toast.success('Address updated successfully!')
+      })
+      .catch(() => {
+        toast.error('Something went wrong!')
+      })
   }
 
   return <AddressForm form={form} submitFn={addAddress} />
